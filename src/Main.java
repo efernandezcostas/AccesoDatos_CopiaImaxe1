@@ -4,15 +4,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /*
-   1.   a) La imágen pesa más que antes
-        b) La imágen pesa aún más que antes. La imágen no cambia, solo el peso del archivo.
+   1.   a) La imágen cambia a la copiada y pesan lo mismo (foto2 ahora es como foto1)
+        b) La imágen pesa aún más que antes. La imágen no cambia, solo va aumentando el peso del archivo.
  */
 
 public class Main {
     public static void main(String[] args) {
         Operaciones op = new Operaciones();
-        op.leerArchivo("../../foto.jpg");
-        op.escribirArchivo("../../foto2.jpeg");
+        op.leerArchivo("/home/dam/Work/Clase/AccesoDatos/ExercicioCopiaImaxe/foto.jpeg");
+        op.escribirArchivo("/home/dam/Work/Clase/AccesoDatos/ExercicioCopiaImaxe/foto2.jpeg");
     }
 }
 
@@ -36,10 +36,6 @@ class Operaciones {
         } catch (IOException e) {
             System.out.println("No se encontró el archivo");
         }
-
-        for (int i = 0; i < listaBytes.size(); i++) {
-            System.out.println(listaBytes.get(i));
-        }
     }
 
     public void escribirArchivo (String dirName) {
@@ -50,8 +46,8 @@ class Operaciones {
             // La línea anterior era antes de los cambios del ejercicio 2
 
             try (FileOutputStream fos = new FileOutputStream(dirName, true)) {
-                for (int i = 0; i < listaBytes.size(); i++) {
-                    fos.write(listaBytes.get(i));
+                for (Integer listaByte : listaBytes) {
+                    fos.write(listaByte);
                 }
             }
         } catch (IOException e) {
