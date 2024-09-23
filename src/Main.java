@@ -11,8 +11,8 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         Operaciones op = new Operaciones();
-        op.leerArchivo("foto.jpeg");
-        op.escribirArchivo("foto2.jpeg");
+        op.leerArchivo("../../foto.jpg");
+        op.escribirArchivo("../../foto2.jpeg");
     }
 }
 
